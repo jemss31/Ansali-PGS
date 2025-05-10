@@ -1,10 +1,15 @@
 <?php
 
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HaircutController;
+use App\Http\Controllers\PetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +36,29 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::put('/edit-student/{id}', [StudentController::class, 'editStudent']);
     Route::delete('/delete-student/{id}', [StudentController::class, 'deleteStudent']);
     
+    Route::get('/get-customers', [CustomerController::class, 'index']);
+    Route::get('/get-customers/{id}', [CustomerController::class, 'show']);
+    Route::post('/add-customer', [CustomerController::class, 'store']);
+    Route::put('/edit-customer/{id}', [CustomerController::class, 'update']);
+    Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
+
+   
+    Route::get('/get-haircuts', [HaircutController::class, 'index']);
+    Route::get('/add-haircuts/{id}', [HaircutController::class, 'show']);
+    Route::post('/add-haircuts', [HaircutController::class, 'store']);
+    Route::put('/edit-haircuts/{id}', [HaircutController::class, 'update']);
+    Route::delete('/delete-haircuts/{id}', [HaircutController::class, 'destroy']);
+
+   
+    Route::get('/get-pets', [PetController::class, 'index']);
+    Route::get('/get-pets/{id}', [PetController::class, 'show']);
+    Route::post('/add-pets', [PetController::class, 'store']);
+    Route::put('/edit-pets/{id}', [PetController::class, 'update']);
+    Route::delete('/delete-pets/{id}', [PetController::class, 'destroy']);
+
+    
+
+
+
     Route::post('/logout', [AuthenticationController::class, 'logout']);
 });
