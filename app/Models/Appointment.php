@@ -18,15 +18,8 @@ class Appointment extends Model
         'notes',
     ];
 
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
-
     protected $casts = [
         'scheduled_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
     ];
 
     // Relationships

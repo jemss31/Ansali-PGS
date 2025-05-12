@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2025 at 03:10 PM
+-- Generation Time: May 12, 2025 at 12:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,6 +39,13 @@ CREATE TABLE `appointments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `customer_id`, `pet_id`, `scheduled_at`, `service_type`, `status`, `notes`, `created_at`, `updated_at`) VALUES
+(2, 2, 1, '2025-05-15 14:00:00', 'Grooming', 'pending', 'First grooming appointment.', '2025-05-12 02:19:52', '2025-05-12 02:19:52');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,15 @@ CREATE TABLE `customers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `address`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 'asdsadsad', 'grgrs@gmail.com', '09723463435', NULL, NULL, '2025-05-12 02:16:18', '2025-05-12 02:16:18'),
+(2, 'asdsadsad', 'grgrsf@gmail.com', '09723463435', NULL, NULL, '2025-05-12 02:17:05', '2025-05-12 02:17:05'),
+(3, 'asdsadsad', 'grgrsfs@gmail.com', '09723463435', NULL, NULL, '2025-05-12 02:19:26', '2025-05-12 02:19:26');
 
 -- --------------------------------------------------------
 
@@ -103,6 +119,13 @@ CREATE TABLE `haircuts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `haircuts`
+--
+
+INSERT INTO `haircuts` (`id`, `pet_id`, `style`, `groomer_name`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 'croptop', 'carlo', 3432.00, '2025-05-12 02:19:33', '2025-05-12 02:19:33');
+
 -- --------------------------------------------------------
 
 --
@@ -120,17 +143,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(2, '2019_08_19_000000_create_failed_jobs_table', 1),
-(3, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(4, '2025_05_08_141638_create_user_statuses_table', 1),
-(5, '2025_05_10_075659_create_customer_table', 1),
-(6, '2025_05_10_081302_create_pets_table', 1),
-(7, '2025_05_10_084026_create_haircut_table', 1),
-(8, '2025_05_10_084547_create_breeds_table', 1),
-(9, '2025_05_10_084745_create_appointment_table', 1),
-(10, '2025_11_08_141520_create_role_table', 1),
-(11, '2025_12_12_000000_create_users_table', 1);
+(23, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(24, '2019_08_19_000000_create_failed_jobs_table', 1),
+(25, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(26, '2025_05_08_141638_create_user_statuses_table', 1),
+(27, '2025_05_10_075659_create_customer_table', 1),
+(28, '2025_05_10_081302_create_pets_table', 1),
+(29, '2025_05_10_084026_create_haircut_table', 1),
+(30, '2025_05_10_084547_create_breeds_table', 1),
+(31, '2025_05_10_084745_create_appointment_table', 1),
+(32, '2025_11_08_141520_create_role_table', 1),
+(33, '2025_12_12_000000_create_users_table', 1);
 
 -- --------------------------------------------------------
 
@@ -168,16 +191,9 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 1, 'auth_token', 'da7a8798378a82d0c19c8d1659bb9f0dfdf751a9311b2acb26f25601daf92b4f', '[\"*\"]', '2025-05-10 03:51:36', NULL, '2025-05-10 03:47:34', '2025-05-10 03:51:36'),
-(2, 'App\\Models\\User', 1, 'auth_token', '1d30e5c8613d158897a15d6f40c3bc88b19b53cd6c13f9640bfa24ab7efd7b38', '[\"*\"]', '2025-05-10 04:04:10', NULL, '2025-05-10 03:55:47', '2025-05-10 04:04:10'),
-(3, 'App\\Models\\User', 1, 'auth_token', '12754d1cf6dbf9ed8b0e1e23f970dab2c690a0e5cc2df9000b9394516cefb1d7', '[\"*\"]', NULL, NULL, '2025-05-10 04:05:36', '2025-05-10 04:05:36'),
-(4, 'App\\Models\\User', 1, 'auth_token', 'c9bb97a88976d9305777e58b4292747a794107e446c56f31068846b6fb8e73a4', '[\"*\"]', NULL, NULL, '2025-05-10 04:06:39', '2025-05-10 04:06:39'),
-(5, 'App\\Models\\User', 1, 'auth_token', '6a97ffaee3614f11eea374ae1c3b77ebcc5431122de6af0f7493a604d3bd6e11', '[\"*\"]', '2025-05-10 04:08:44', NULL, '2025-05-10 04:07:08', '2025-05-10 04:08:44'),
-(6, 'App\\Models\\User', 1, 'auth_token', '8ae66528fdb1a9a502b8623061f1fbdb9c5cf1bcd8fd27e026d912c374ceda02', '[\"*\"]', '2025-05-10 04:12:41', NULL, '2025-05-10 04:11:38', '2025-05-10 04:12:41'),
-(7, 'App\\Models\\User', 1, 'auth_token', '444b47c0cf27d53142870cfe373e84eb194ba9c744e55bd586a62b0ea0b5ba18', '[\"*\"]', '2025-05-10 04:15:44', NULL, '2025-05-10 04:14:00', '2025-05-10 04:15:44'),
-(8, 'App\\Models\\User', 1, 'auth_token', 'ba1131685496f436d34e9ca29bce5ade873260a2cec29633e08f45904f1a5e78', '[\"*\"]', '2025-05-10 04:20:41', NULL, '2025-05-10 04:15:56', '2025-05-10 04:20:41'),
-(9, 'App\\Models\\User', 1, 'auth_token', '077d648228f4be156f6d703facea5bedf8d21dd0b0dafd4418bb587d95e5bd5e', '[\"*\"]', '2025-05-10 04:26:19', NULL, '2025-05-10 04:20:33', '2025-05-10 04:26:19'),
-(10, 'App\\Models\\User', 1, 'auth_token', '234adeef6d1e2cb841ee6edf0cd3459c075ee64bdeb40300031f6b3b06c7ca5e', '[\"*\"]', '2025-05-10 04:28:05', NULL, '2025-05-10 04:27:05', '2025-05-10 04:28:05');
+(1, 'App\\Models\\User', 1, 'auth_token', '2069174afdd6d330227997cb963b906e2ecdb9f1d1530ffabb0cec399f394b27', '[\"*\"]', NULL, NULL, '2025-05-12 02:15:51', '2025-05-12 02:15:51'),
+(2, 'App\\Models\\User', 1, 'auth_token', 'e0e7608073888512c960a5160b602486dbe9a6cc847958b12e936e1109669678', '[\"*\"]', '2025-05-12 02:19:13', NULL, '2025-05-12 02:16:05', '2025-05-12 02:19:13'),
+(3, 'App\\Models\\User', 1, 'auth_token', '461941e24c0338fba45db7d896f8f9e1b8623382b0ce4149a4fc77b3198a0074', '[\"*\"]', '2025-05-12 02:19:52', NULL, '2025-05-12 02:18:57', '2025-05-12 02:19:52');
 
 -- --------------------------------------------------------
 
@@ -199,7 +215,8 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `pet_name`, `customer_name`, `notes`, `created_at`, `updated_at`) VALUES
-(2, 'carlo', 'mwuah', 'shit', '2025-05-10 04:21:45', '2025-05-10 04:21:45');
+(1, 'carlos', 'carlo ababan', 'shingshing', '2025-05-12 02:16:53', '2025-05-12 02:17:31'),
+(2, 'fdsfscv', 'fdfsfsxcv', 'shit', '2025-05-12 02:19:38', '2025-05-12 02:19:38');
 
 -- --------------------------------------------------------
 
@@ -219,8 +236,10 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '2025-05-10 03:47:20', '2025-05-10 03:47:20'),
-(2, 'Customer', '2025-05-10 03:47:20', '2025-05-10 03:47:20');
+(1, 'Admin', '2025-05-12 02:15:21', '2025-05-12 02:15:21'),
+(2, 'Customer', '2025-05-12 02:15:21', '2025-05-12 02:15:21'),
+(3, 'asdsadsadsadsadada', '2025-05-12 02:17:11', '2025-05-12 02:17:11'),
+(4, 'asdsadsadssadsadada', '2025-05-12 02:19:46', '2025-05-12 02:19:46');
 
 -- --------------------------------------------------------
 
@@ -247,7 +266,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `user_status_id`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Admin', 'Admin', 'admin@gmail.com', NULL, '$2y$10$Wre.V/GpMhQGnG9JvgydWu8RP3heX6YDwXGjHeBjwdj83SxRMbzha', NULL, '2025-05-10 03:47:20', '2025-05-10 03:47:20');
+(1, 1, 1, 'Admin', 'Admin', 'admin@gmail.com', NULL, '$2y$10$b1DmzCDIHa58HJa9aq0UCuylHaw7BaRFeN3nQyUbsN3BrRtSX3Sf6', NULL, '2025-05-12 02:15:22', '2025-05-12 02:15:22');
 
 -- --------------------------------------------------------
 
@@ -267,8 +286,8 @@ CREATE TABLE `user_statuses` (
 --
 
 INSERT INTO `user_statuses` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Active', '2025-05-10 03:47:19', '2025-05-10 03:47:19'),
-(2, 'Inactive', '2025-05-10 03:47:19', '2025-05-10 03:47:19');
+(1, 'Active', '2025-05-12 02:15:21', '2025-05-12 02:15:21'),
+(2, 'Inactive', '2025-05-12 02:15:21', '2025-05-12 02:15:21');
 
 --
 -- Indexes for dumped tables
@@ -364,7 +383,7 @@ ALTER TABLE `user_statuses`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `breeds`
@@ -376,7 +395,7 @@ ALTER TABLE `breeds`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -388,19 +407,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `haircuts`
 --
 ALTER TABLE `haircuts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pets`
@@ -412,7 +431,7 @@ ALTER TABLE `pets`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
